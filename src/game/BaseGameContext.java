@@ -69,6 +69,15 @@ public class BaseGameContext {
         return true;
     }
 
+    public void printAllOneWordSolutions() {
+        for(String word : wordSet) {
+            char zero = 0;
+            if(isValidWord(word, zero) && isWinning(word)) {
+                System.out.println("Possible Solution: " + word);
+            }
+        }
+    }
+
     public void printAllTwoWordSolutions() {
         Set<String> narrowSet = new HashSet<>();
         char zero = 0;
@@ -80,7 +89,7 @@ public class BaseGameContext {
         for(String word : narrowSet) {
             Set<String> potentialSet = new HashSet<>();
             for(String potential : narrowSet) {
-                if(potential.charAt(0) == word.charAt(word.length()-1) && isValidWord(potential, word.charAt(word.length()-1))) {
+                if(!potential.equals(word) && potential.charAt(0) == word.charAt(word.length()-1) && isValidWord(potential, word.charAt(word.length()-1))) {
                     potentialSet.add(potential);
                 }
             }

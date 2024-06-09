@@ -5,6 +5,7 @@ public class Main {
         System.out.println("Hello World");
         BaseGameContext ctx = new BaseGameContext();
         // ctx.gameLoop();
+        ctx.printAllOneWordSolutions();
         ctx.printAllTwoWordSolutions();
     }
 }
